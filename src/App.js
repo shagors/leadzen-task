@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Posts from './components/Posts';
 import Pagination from './components/Pagination';
+import './App.css';
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -28,8 +29,8 @@ function App() {
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   return (
-    <div className="bg-body-secondary">
-      <div className='container mt-5 '>
+    <div className="full-body">
+      <div className='container'>
         <Posts posts={currentPosts} loading={loading}></Posts>
         <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}></Pagination>
       </div>
