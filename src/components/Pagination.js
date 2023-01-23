@@ -1,4 +1,5 @@
 import React from 'react';
+import PaginationB from 'react-bootstrap/Pagination';
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     const pageNumbers = [];
@@ -9,7 +10,8 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
 
   return (
     <nav className='mb-3'>
-        <ul className='pagination position-absolute top-100 start-50 translate-middle'>
+        <ul className='pagination position-absolute top-80 start-50 translate-middle'>
+            <PaginationB.Prev />
             {
                 pageNumbers.map(number => (
                     <li key={number} className='page-item'>
@@ -19,6 +21,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
                     </li>
                 ))
             }
+            <PaginationB.Next />
         </ul>
     </nav>
   )
