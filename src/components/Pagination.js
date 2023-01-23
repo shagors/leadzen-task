@@ -8,8 +8,8 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     }
 
   return (
-    <nav>
-        <ul className='pagination'>
+    <nav className='mb-3'>
+        <ul className='pagination position-absolute top-100 start-50 translate-middle'>
             {
                 pageNumbers.map(number => (
                     <li key={number} className='page-item'>

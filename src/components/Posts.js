@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
 
 const Posts = ({ posts, loading }) => {
     const [show, setShow] = useState(false);
     if(loading){
-        return <h2>Loading....</h2>
+        return (
+            <div className="spinner-border text-success position-absolute top-50 start-50 translate-middle" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        )
     }
     console.log(posts);
 
@@ -12,23 +15,23 @@ const Posts = ({ posts, loading }) => {
     <ul className='list-group my-4'>
         {
             posts.map(post => (
-                <li key={post.id} className='list-group-item py-5 mb-5 rounded-4'>
+                <li key={post.id} className='list-group-item py-4 mb-3 rounded-4'>
                     <div>
                         <div className="row">
                             <div className="col">
-                                <p>Name</p>
+                                <p>{posts?.name}</p>
                             </div>
                             <div className="col">
                                 <h6 className='fw-bold'>CONTACT</h6>
-                                <p className="fs-6">Get from API</p>
+                                <p className="fs-6">{posts?.phone}</p>
                             </div>
                             <div className="col">
                                 <h6 className='fw-bold'>CITY</h6>
-                                <p className="fs-6">Get from API</p>
+                                <p className="fs-6">{posts?.address?.city}</p>
                             </div>
                             <div className="col">
                                 <h6 className='fw-bold'>STATE</h6>
-                                <p className="fs-6">Get from API</p>
+                                <p className="fs-6">{posts?.address?.street}</p>
                             </div>
                             <div className='col'>
                                 <button type='button' className="btn btn-primary btn-sm rounded" onClick={() => setShow(!show)}>
@@ -37,7 +40,7 @@ const Posts = ({ posts, loading }) => {
                             </div>
                             {show && (
                                 <div className='container mt-4 mb-2 shadow-lg rounded'>
-                                    <div className="p-5">
+                                    <div className="p-3">
                                         <div className="row">
                                             <div className="col">
                                                 <h6 className='fw-bold'>Description</h6>
