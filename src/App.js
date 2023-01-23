@@ -13,6 +13,7 @@ function App() {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  // data get from server
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
